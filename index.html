@@ -20,6 +20,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -129,25 +130,128 @@
     </div>
 </section>
 
+<!-- SKILLS -->
+<section id="skills" class="skills">
+    <h1 class="section-title">skills.</h1>
+
+    <div class="skills-container">
+        <div class="skill-item">
+            <h3>HTML</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <h3>CSS</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <h3>JavaScript</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <h3>React</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <h3>Networking Basics</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 65%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <h3>Git</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
  
 <section id="contact" class="contact">
     <h1 class="section-title">contact.</h1>
 
     <p>
-        Interested in working together or building projects? Feel free to contact me.
+        Interested in working together or building projects? Feel free to reach out.
     </p>
 
-    <div class="contact-info">
-        <p>Email:<a href="mailto:nishanthkomati5@gmail.com"> nishanthkomati5@gmail.com</a></p>
-        <p>Location: Hyderabad, India</p>
-        <p>GitHub:<a href="https://github.com/komati-nishanth" target="_blank">komati-nishanth</a></p>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>Email: <a href="mailto:nishanthkomati5@gmail.com">nishanthkomati5@gmail.com</a></p>
+            <p>Location: Hyderabad, India</p>
+            <p>GitHub: <a href="https://github.com/komati-nishanth" target="_blank">komati-nishanth</a></p>
+        </div>
+
+        <form class="contact-form" onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number *</label>
+                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10 digits" required>
+                <span id="mobile-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
     </div>
 </section>
 
 <footer>
     <p>© 2026 Komati Nishanth</p>
 </footer>
+
+<script>
+function validateForm(event) {
+    event.preventDefault();
+    
+    const mobile = document.getElementById('mobile').value;
+    const mobileError = document.getElementById('mobile-error');
+    
+    // Validate mobile number length
+    if (mobile.length !== 10 || isNaN(mobile)) {
+        mobileError.textContent = 'Mobile number must be exactly 10 digits';
+        return false;
+    } else {
+        mobileError.textContent = '';
+    }
+    
+    // If validation passes, allow form submission
+    alert('Thank you! Your message has been sent successfully.');
+    event.target.reset();
+    return false;
+}
+</script>
 
 </body>
 </html>
